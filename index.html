@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>CSS</title>
+    </head>
+    <body>
+        <style>
+            body {
+                background-color: skyblue;
+            }
+            #Main {
+                display: flex;
+                flex-direction:column;
+                align-items:center;
+                justify-content: center;
+                width: 302px;
+                height: 300px;
+                border: 10px outset;
+                margin: 200 auto;
+            }
+            #i1 {
+                width: 300px;
+                height:50px;
+                border: none;
+                font-size: 20px;
+            }
+            #i2 {
+                width: 300px;
+                height: 50px;
+                border: none;
+                font-size: 20px;
+                margin-top: 5px;
+            }
+            .t1:focus {
+                background-color: deepskyblue;
+                transition: 1s;
+            }
+            #t5 {
+                display:flex;
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+                height: 50px;
+                
+                margin-top: 10px;
+            }
+            #Buttons {
+                width:2em;
+                border:1px solid;
+                font-size:1.5em;
+                cursor:pointer;
+                transition:1s;
+            }
+            #Buttons:hover{
+                box-shadow: 4px 4px;
+            }
+            #Result {
+                width: 300px;
+                height: 60px;
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                border: none;
+                font-size: 20px;
+                margin-top: 10px;
+            }
+        </style>
+        <div id="Main">
+            <input id="i1" class="t1" maxlength="4" />
+            <input id="i2" class="t1" maxlength="4" />
+            <div id="t5">
+                <button id="Buttons" class="t2" onclick="plus()">+</button>
+                <button id="Buttons" onclick="minus()">−</button>
+                <button id="Buttons" onclick="multiply()">*</button>
+                <button id="Buttons" onclick="percent()">%</button>
+                <button id="Buttons" onclick="divide()">/</button>
+                <button id="Buttons" onclick="remove()">C</button>
+            </div>
+            <input id="Result" readonly/>
+        </div>
+        <script>
+            function plus() {
+                const firstValue = document.querySelector("#i1").value;
+                const secondValue = document.querySelector("#i2").value;
+                document.querySelector("#Result").value = firstValue * 1 + secondValue * 1;
+            }
+            function minus() {
+                const p5 = document.querySelector("#i1").value;
+                const p6 = document.querySelector("#i2").value;
+                document.querySelector("#Result").value = p5 - p6;
+            }
+            function multiply() {
+                const p5 = document.querySelector("#i1").value;
+                const p6 = document.querySelector("#i2").value;
+                document.querySelector("#Result").value = p5 * p6;
+            }
+            function percent() {
+                const p5 = document.querySelector("#i1").value;
+                const p6 = document.querySelector("#i2").value;
+                document.querySelector("#Result").value = p5 % p6;
+            }
+            function divide() {
+                const p5 = document.querySelector("#i1").value;
+                const p6 = document.querySelector("#i2").value;
+                document.querySelector("#Result").value = p5 / p6;
+            }
+            function remove(){
+                document.querySelector("#Result").value = "";
+                document.querySelector("#i2").value = "";
+                document.querySelector("#i1").value = "";
+            }
+        </script>
+    </body>
+</html>
